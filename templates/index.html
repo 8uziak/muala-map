@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Muala</title>
+    <!-- The callback parameter is required, so we use console.debug as a noop -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNzM5HWBdekzBo5ZKW0RBFAy4Q0pcxtUc&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+    <link rel="stylesheet" href="./main.css"/>
+  </head>
+  <body>
+    <gmp-map center="52.0692,19.4802" zoom="6" map-id="POLAND_MAP_ID">
+        <gmp-advanced-marker position="52.0692,19.4802" title="Center of Poland">
+        </gmp-advanced-marker>
+    </gmp-map>
+  </body>
+</html>
