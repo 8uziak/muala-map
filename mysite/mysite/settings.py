@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!@1je)58ip@=^8e7s(-oj^gu2zk5ga6mto0bt&f%$&ccn&9%wt'
+API_PRIVATE_KEY = os.environ.get('API_PRIVATE_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'dotenv',
     'muala.apps.MualaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'muala/static'),
 ]
 
 MIDDLEWARE = [
